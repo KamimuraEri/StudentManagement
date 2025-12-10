@@ -10,9 +10,15 @@ version = '0.0.1-SNAPSHOT'
 description = 'StudentManagement'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly{
+        extendsFrom annotationProcessor
+    }
 }
 
 
@@ -24,6 +30,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     // Apache Commons Lang ユーティリティ
     implementation 'org.apache.commons:commons-lang3:3.14.0'
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
     //MySQLドライバ
     runtimeOnly 'com.mysql:mysql-connector-j'
     //MyBatis
